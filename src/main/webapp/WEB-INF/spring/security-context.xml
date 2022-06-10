@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	<!--  652 쪽 -->
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+	<security:http>
+		<security:csrf disabled="true"/>
+		<security:form-login always-use-default-target="true" login-page="/member/login" default-target-url="/board/list" />
+		<security:logout logout-success-url="/board/list" />
+		<security:remember-me/>
+		
+		<!-- access 속성 작성 법 (책 673~674) -->
+		
+		<!-- 게시글 create, update, delete -->
+		<security:intercept-url pattern="/board/insert" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/board/modify" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/board/remove" access="isAuthenticated()"/>
+		
+		<!--  댓글 create, update, delete  -->
+		<!-- <security:intercept-url pattern="/reply/insert" access="isAuthenticated()"/> -->
+		<!-- <security:intercept-url pattern="/reply/modify" access="isAuthenticated()"/> -->
+		<!-- <security:intercept-url pattern="/reply/delete" access="isAuthenticated()"/> -->
+		
+		<!-- 회원 read, update, delete -->
+		<security:intercept-url pattern="/member/list" access="hasRole('ADMIN')"/>
+		<security:intercept-url pattern="/member/initpw" access="hasRole('ADMIN')"/>
+		<security:intercept-url pattern="/member/get" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/member/remove" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/member/modify" access="isAuthenticated()"/>
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service 
+				data-source-ref="dataSource" 
+				users-by-username-query="
+					SELECT id, password, 1
+					FROM Member
+					WHERE id = ? 
+				"
+				authorities-by-username-query="
+					SELECT memberId, role
+					FROM Auth
+					WHERE memberId = ?
+				"
+				/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
