@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("board")
+@RequestMapping("/board/*")
 public class MainController {
 
 	@GetMapping
-	@RequestMapping("list")
+	@RequestMapping("/list")
 	public String list(Model model) {
 
 		return "/board/list";
