@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.travel.mapper.MemberMapper">
+
+	<insert id="insertMember">
+		INSERT INTO Member (id, password, email, nickName)
+		VALUES (#{id}, #{password}, #{email}, #{nickName})
+	
+	</insert>
+	
+	<select id="countMemberId" resultType="int">
+		SELECT COUNT(id) 
+		FROM Member 
+		WHERE id = #{id}
+	</select>
+	
+	<select id="countMemberEmail" resultType="int">
+		SELECT COUNT(email)
+		FROM Member
+		WHERE email = #{email}
+	</select>
+	
+	<select id="countMemberNickName" resultType="int">
+		SELECT COUNT(nickName)
+		FROM Member
+		WHERE nickName = #{nickName}	
+	</select>
+	
+	<select id="selectAllMember" resultType="com.team.travel.domain.MemberDto">
+		SELECT id,
+		       password,
+		       email,
+		       nickName,
+		       inserted
+		FROM   Member
+		ORDER BY inserted DESC
+	</select>
+	
+	<select id="selectMemberById" resultType="com.team.travel.domain.MemberDto">
+		SELECT id,
+		       password,
+		       email,
+		       nickName,
+		       inserted
+		FROM   Member
+		WHERE id = #{id} 
+	</select>
+	
+	<delete id="deleteMemberById">
+		DELETE FROM Member
+		WHERE id = #{id}
+	</delete>
+	
+	<update id="updateMember">
+		UPDATE Member
+		SET password = #{password},
+		    email = #{email},
+		    nickName = #{nickName}
+		WHERE
+		    id = #{id}
+	</update>
+	
+	<!-- 권한 추가 -->
+	<insert id="insertAuth">
+		INSERT INTO Auth (memberId, role)
+		VALUES (#{id}, #{auth})
+	</insert>
+	
+	<delete id="deleteAuthById">
+		DELETE FROM Auth
+		WHERE memberId = #{id}
+	</delete>
+	
+	<update id="updatePasswordById">
+		UPDATE Member
+		SET password = #{pw}
+		WHERE id = #{id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+

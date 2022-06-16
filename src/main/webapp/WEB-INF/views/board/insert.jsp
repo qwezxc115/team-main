@@ -14,46 +14,37 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<my:navBar current="login"></my:navBar>
-	
+	<my:navBar current="insert"></my:navBar>
+	<!-- .container>.row>.col>h1{글 작성} -->
 	<div class="container">
-	
-		
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-6">
-				<h1>로그인 </h1>
-				<form action="${appRoot }/login" method="post">
-					<label for="usernameInput1" class="form-label">
-						아이디 
-					</label>
-					<input id="usernameInput1" class="form-control" type="text" name="username" />
-					
-					<label for="passwordInput1" class="form-label">
-						패스워드
-					</label>
-					<input class="form-control" id="passwordInput1" type="password" name="password" />
-					
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" name="remember-me" id="rememberMeCheck1" />
-						
-						<label for="rememberMeCheck1" class="form-check-label">
-							자동로그인
-						</label>
+		<div class="row">
+			<div class="col">
+				<h1>글 작성</h1>
+				
+				<form action="${appRoot }/board/insert" method="post" enctype="multipart/form-data">
+					<div>
+						<label class="form-label" for="input1">제목</label>
+						<input class="form-control mb-3" type="text" name="title" required id="input1" />
 					</div>
 					
-					<input class="btn btn-primary" type="submit" value="로그인" />
+					<div>
+						<label class="form-label" for="textarea1">본문</label>
+						<textarea class="form-control mb-3" name="body" id="textarea1" cols="30" rows="10"></textarea>
+					</div>
+					<div>
+						<label for="fileInput1" class="form-label">
+						파일
+						</label>
+						<input class="form-control mb-3" multiple="multiple" type="file" name="file" accept="image/*"/>
+					</div>
+					
+					<button class="btn btn-primary">작성</button>
 				</form>
-			
 			</div>
 		</div>
 	</div>
-	
 </body>
 </html>
-
-
-
 
 
 
