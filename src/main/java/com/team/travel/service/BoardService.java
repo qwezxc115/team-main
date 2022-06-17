@@ -90,7 +90,6 @@ public class BoardService {
 			requestBody = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
 			s3.putObject(putObjectRequest, requestBody);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}

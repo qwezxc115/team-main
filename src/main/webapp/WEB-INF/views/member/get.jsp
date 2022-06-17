@@ -169,7 +169,7 @@
 </script>
 </head>
 <body>
-	<my:navBar current="memberInfo"></my:navBar>
+	<my:navbar current="memberInfo"/>
 	
 	<div class="container">
 	

@@ -14,7 +14,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<my:navBar current="memberList"></my:navBar>
+
+<my:navbar current="memberList"/>
 
 <div class="container">
 	<div class="row justify-content-center">

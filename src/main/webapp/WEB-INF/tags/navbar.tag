@@ -4,27 +4,27 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ attribute name="current"%>
 
-<%-- 회원정보링크 --%>
-<sec:authorize access="isAuthenticated()">
-	<sec:authentication property="principal" var="principal" />
-	<c:url value="/member/get" var="memberInfoUrl">
-		<c:param name="id" value="${principal.username }" />
-	</c:url>
-</sec:authorize>
+	<%-- 회원정보링크 --%>
+		<sec:authorize access="isAuthenticated()">
+			<sec:authentication property="principal" var="principal" />
+			<c:url value="/member/get" var="memberInfoUrl">
+				<c:param name="id" value="${principal.username }" />
+			</c:url>
+		</sec:authorize>
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-	<div class="container">
-		<a class="navbar-brand" href="${listUrl }">
-			<i class="fa-solid fa-house"></i>
-		</a>
+	<%-- navbar 시작 --%>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+			<div class="container">
+				<a class="navbar-brand" href="${appRoot }/board/list">
+					<i class="fa-solid fa-house"></i> <%-- 로고 --%>
+				</a>
 
 		<button class="navbar-toggler" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<%-- 게시판 --%>
+	<%-- 게시판 --%>
 		<c:url value="/board/list" var="listUrl"></c:url>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -33,7 +33,7 @@
 						href="${listUrl }">목록보기</a>
 				</li>
 
-				<%-- 글쓰기 --%>
+			<%-- 글쓰기 --%>
 				<c:url value="/board/insert" var="insertUrl"></c:url>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
@@ -42,7 +42,7 @@
 					</li>
 				</sec:authorize>
 
-				<%-- 회원가입 --%>
+			<%-- 회원가입 --%>
 				<c:url value="/member/signup" var="signupUrl"></c:url>
 				<sec:authorize access="not isAuthenticated()">
 					<li class="nav-item">
@@ -51,7 +51,7 @@
 					</li>
 				</sec:authorize>
 
-				<%-- 회원목록 --%>
+			<%-- 회원목록 --%>
 				<c:url value="/member/list" var="memberListUrl"></c:url>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
@@ -60,21 +60,21 @@
 					</li>
 				</sec:authorize>
 
-				<%-- admin 계정일때만 보임 --%>
+			<%-- admin 계정일때만 보임 --%>
 				<sec:authorize access="hasRole('ADMIN')">
 					<li class="nav-item">
 						<a href="${memberListUrl }"
 							class="nav-link ${current == 'memberList' ? 'active' : '' }">회원목록</a>
 					</li>
 
-					<%-- 암호 초기화 --%>
+				<%-- 암호 초기화 --%>
 					<c:url value="/member/initpw" var="initPasswordUrl"></c:url>
 					<div class="nav-item">
 						<a href="${initPasswordUrl }" class="nav-link">암호초기화</a>
 					</div>
 				</sec:authorize>
 
-				<%-- 로그인 --%>
+			<%-- 로그인 --%>
 				<c:url value="/member/login" var="loginUrl"></c:url>
 				<sec:authorize access="not isAuthenticated()">
 					<li class="nav-item">
@@ -82,7 +82,7 @@
 					</li>
 				</sec:authorize>
 
-				<%-- 로그아웃 --%>
+			<%-- 로그아웃 --%>
 				<c:url value="/logout" var="logoutUrl"></c:url>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
@@ -96,7 +96,7 @@
 				<form action="${logoutUrl }" id="logoutForm1" method="post"></form>
 			</div>
 
-
+		<%-- 검색창 --%>
 			<form action="${listUrl }" class="d-flex">
 				<div class="input-group">
 					<select name="type" id="" class="form-select"

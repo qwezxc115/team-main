@@ -14,7 +14,7 @@
 </head>
 <body>
 	
-	<my:navBar current="list" />
+	<my:navbar current="list" />
 
 	<div class="container">
 		<div class="row">
@@ -26,7 +26,6 @@
 					</div>
 				</c:if>
 				
-				<!-- table.table>thead>tr>th*3^^tbody -->
 				<table class="table">
 					<thead>
 						<tr>

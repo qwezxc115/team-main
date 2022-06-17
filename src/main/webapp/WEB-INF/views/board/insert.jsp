@@ -14,8 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<my:navBar current="insert"></my:navBar>
-	<!-- .container>.row>.col>h1{글 작성} -->
+	<my:navbar current="insert"/>
 	<div class="container">
 		<div class="row">
 			<div class="col">

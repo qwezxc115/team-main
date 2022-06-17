@@ -14,15 +14,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<my:navBar current="login"></my:navBar>
 	
 	<div class="container">
-	
-		
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-6">
-				<h1>로그인 </h1>
+				<a href="${appRoot }/board/list">
+					<h1>트리플 로고</h1>
+				</a>
 				<form action="${appRoot }/login" method="post">
 					<label for="usernameInput1" class="form-label">
 						아이디 
@@ -38,7 +36,7 @@
 						<input class="form-check-input" type="checkbox" name="remember-me" id="rememberMeCheck1" />
 						
 						<label for="rememberMeCheck1" class="form-check-label">
-							자동로그인
+							자동 로그인
 						</label>
 					</div>
 					

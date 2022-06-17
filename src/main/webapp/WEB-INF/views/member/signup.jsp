@@ -154,7 +154,7 @@
 </head>
 <body>
 
-<my:navBar current="signup"></my:navBar>
+<my:navbar current="signup"/>
 
 	<div class="container">
 	

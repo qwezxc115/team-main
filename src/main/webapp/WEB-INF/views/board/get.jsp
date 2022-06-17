@@ -48,11 +48,6 @@
 			}
 
 		});
-
-
-		
-		
-		
 		
 		// 페이지 로딩 후 reply list 가져오는 ajax 요청
 		const listReply = function() {
@@ -63,7 +58,6 @@
 				type : "get",
 				data : data,
 				success : function(list) {
-					// console.log("댓글 가져 오기 성공");
 					console.log(list);
 					
 					const replyListElement = $("#replyList1");
@@ -85,14 +79,12 @@
 										</span>
 										
 
-										
 									</div>
 									<span class="badge bg-light text-dark">
 										<i class="fa-solid fa-user"></i>
 										\${list[i].writerNickName}
 									</span>
 									<span id="replyContent\${list[i].id }"><span>
-	
 	
 								</div>
 	
@@ -271,8 +263,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<my:navBar></my:navBar>
-	<!-- .container>.row>.col>h1{글 본문} -->
+	<my:navbar></my:navbar>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -362,7 +353,6 @@
 
 
 	<%-- 댓글 추가 form --%>
-	<!-- .container.mt-3>.row>.col>form -->
 	<div class="container mt-3">
 		<div class="row">
 			<div class="col">
@@ -384,54 +374,13 @@
 
 	<%-- 댓글 목록 --%>
 
-	<!-- .container.mt-3>.row>.col -->
 	<div class="container mt-3">
 		<div class="row">
 			<div class="col">
 				<h3>댓글 <span id="numOfReply1"></span> 개</h3>
 
 				<ul id="replyList1" class="list-group">
-					<%-- 
-					<c:forEach items="${replyList }" var="reply">
-						<li class="list-group-item">
-							<div id="replyDisplayContainer${reply.id }">
-								<div class="fw-bold">
-									<i class="fa-solid fa-comment"></i>
-									${reply.prettyInserted}
-									<span class="reply-edit-toggle-button badge bg-info text-dark"
-										id="replyEditToggleButton${reply.id }"
-										data-reply-id="${reply.id }">
-										<i class="fa-solid fa-pen-to-square"></i>
-									</span>
-									<span class="reply-delete-button badge bg-danger"
-										data-reply-id="${reply.id }">
-										<i class="fa-solid fa-trash-can"></i>
-									</span>
-								</div>
-								<c:out value="${reply.content }" />
 
-
-							</div>
-
-							<div id="replyEditFormContainer${reply.id }"
-								style="display: none;">
-								<form action="${appRoot }/reply/modify" method="post">
-									<div class="input-group">
-										<input type="hidden" name="boardId" value="${board.id }" />
-										<input type="hidden" name="id" value="${reply.id }" />
-										<input class="form-control" value="${reply.content }"
-											type="text" name="content" required />
-										<button class="btn btn-outline-secondary">
-											<i class="fa-solid fa-comment-dots"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-
-
-						</li>
-					</c:forEach>
-					--%>
 				</ul>
 			</div>
 		</div>
@@ -447,11 +396,4 @@
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
 
