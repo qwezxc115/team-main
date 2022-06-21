@@ -13,9 +13,9 @@
 		</sec:authorize>
 
 	<%-- navbar 시작 --%>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 fiexd-top">
 			<div class="container">
-				<a class="navbar-brand" href="${appRoot }/board/list">
+				<a class="navbar-brand" href="${appRoot }/main/home">
 					<i class="fa-solid fa-house"></i> <%-- 로고 --%>
 				</a>
 
