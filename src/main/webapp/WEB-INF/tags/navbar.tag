@@ -16,7 +16,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 fiexd-top">
 			<div class="container">
 				<a class="navbar-brand" href="${appRoot }/main/home">
-					<i class="fa-solid fa-house"></i> <%-- 로고 --%>
+					<img width="40" src="${appRoot }/resources/img/triple.png"> <%-- 로고 --%>
 				</a>
 
 		<button class="navbar-toggler" data-bs-toggle="collapse"
@@ -26,8 +26,8 @@
 
 	<%-- 게시판 --%>
 		<c:url value="/board/list" var="listUrl"></c:url>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		<div class="collapse navbar-collapse justify-content-center " id="navbarSupportedContent">
+			<ul class="navbar-nav mb-2 mb-lg-0">
 				<li class="nav-item">
 					<a class="nav-link ${current == 'list' ? 'active' : '' }"
 						href="${listUrl }">목록보기</a>

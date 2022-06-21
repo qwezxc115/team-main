@@ -43,7 +43,7 @@
 						idOk = true;
 						break;
 					case "notOk" :
-						$("#idMessage1").text("사용 불가능한 아이디입니다.");
+						$("#idMessage1").text("이미 사용중인 아이디입니다.");
 						break;
 					}
 				},
@@ -77,7 +77,7 @@
 						emailOk = true;
 						break;
 					case "notOk" :
-						$("#emailMessage1").text("사용 불가능한 이메일입니다.");
+						$("#emailMessage1").text("이미 사용중인 이메일입니다.");
 						
 						break;
 					}
@@ -113,7 +113,7 @@
 						nickNameOk = true;
 						break;
 					case "notOk" :
-						$("#nickNameMessage1").text("사용 불가능한 닉네임입니다.");
+						$("#nickNameMessage1").text("이미 사용중인 닉네임입니다.");
 						break;
 					}
 				}, 
