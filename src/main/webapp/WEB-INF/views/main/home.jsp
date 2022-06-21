@@ -1,200 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE HTML>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="${appRoot }/resources/assets/css/main.css" />
-<noscript>
-	<link rel="stylesheet"
-		href="${appRoot }/resources/assets/css/noscript.css" />
-</noscript>
+  <title>트리플</title>
+  
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-<!-- 타이틀 이미지 -->
-<link href="${appRoot }/resources/img/triple.png" rel="shortcut icon"
-	type="image/x-icon">
-<title>트리플</title>
+  <!-- Favicons -->
+  <link href="${appRoot }/resources/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <!-- 타이틀 로고 -->
+  <link href="${appRoot }/resources/assets/img/triple.png" rel="icon">
+  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="${appRoot }/resources/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="${appRoot }/resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${appRoot }/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="${appRoot }/resources/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="${appRoot }/resources/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="${appRoot }/resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="${appRoot }/resources/assets/css/style.css" rel="stylesheet">
 
 </head>
+<body>
 
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-<body class="is-preload">
+      <h1 class="logo me-auto me-lg-0"><a href="${appRoot }/main/home">트리플</a></h1>
 
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
+	  <!-- navbar  -->
+      <my:navbar current="home"/>
 
-		<!-- header -->
-		<%@ include file="/WEB-INF/subModules/header.jsp"%>
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
 
-		<!-- Menu -->
-		<nav id="menu">
-			<div class="inner">
-				<h2>Menu</h2>
-				<ul class="links">
-					<li>
-						<a href="${appRoot }/main/home">홈으로</a>
-					</li>
-					<li>
-						<a href="${appRoot }/board/list">게시판1</a>
-					</li>
-					<li>
-						<a href="#">게시판2</a>
-					</li>
-					<li>
-						<a href="${appRoot }/member/login">로그인</a>
-					</li>
-					<li>
-						<a href="#">회원가입</a>
-					</li>
-				</ul>
-				<a href="#" class="close">Close</a>
-			</div>
-		</nav>
+    </div>
 
-		<!-- Banner -->
-		<section id="banner">
-			<div class="inner">
-				<div class="logo">
-					<img width="75" src="${appRoot }/resources/img/triple.png">
-				</div>
-				<h2>트리플</h2>
-				<p>우리 모두가 함께 만들어 가는 여행!</p>
-			</div>
-		</section>
+  </header><!-- End Header -->
 
-		<!-- Wrapper -->
-		<section id="wrapper">
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1>트리플</h1>
+      <h2>Trip for</h2>
+      <a href="about.html" class="btn-about">About Me</a>
+    </div>
+  </section><!-- End Hero -->
 
-			<!-- One -->
-			<section id="one" class="wrapper spotlight style1">
-				<div class="inner">
-					<a href="#" class="image">
-						<img src="${appRoot }/resources/img/pic01.jpg" alt="" />
-					</a>
-					<div class="content">
-						<h2 class="major">Magna arcu feugiat</h2>
-						<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit.
-							Cras turpis ante, nullam sit amet turpis non, sollicitudin
-							posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla
-							dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex
-							nulla cursus.</p>
-						<a href="#" class="special">Learn more</a>
-					</div>
-				</div>
-			</section>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kelly</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
 
-			<!-- Two -->
-			<section id="two" class="wrapper alt spotlight style2">
-				<div class="inner">
-					<a href="#" class="image">
-						<img src="${appRoot }/resources/img/pic02.jpg" alt="" />
-					</a>
-					<div class="content">
-						<h2 class="major">Tempus adipiscing</h2>
-						<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit.
-							Cras turpis ante, nullam sit amet turpis non, sollicitudin
-							posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla
-							dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex
-							nulla cursus.</p>
-						<a href="#" class="special">Learn more</a>
-					</div>
-				</div>
-			</section>
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-			<!-- Three -->
-			<section id="three" class="wrapper spotlight style3">
-				<div class="inner">
-					<a href="#" class="image">
-						<img src="${appRoot }/resources/img/pic03.jpg" alt="" />
-					</a>
-					<div class="content">
-						<h2 class="major">Nullam dignissim</h2>
-						<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit.
-							Cras turpis ante, nullam sit amet turpis non, sollicitudin
-							posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla
-							dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex
-							nulla cursus.</p>
-						<a href="#" class="special">Learn more</a>
-					</div>
-				</div>
-			</section>
+  <!-- Vendor JS Files -->
+  <script src="${appRoot }/resources/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/aos/aos.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="${appRoot }/resources/assets/vendor/php-email-form/validate.js"></script>
 
-			<!-- Four -->
-			<section id="four" class="wrapper alt style1">
-				<div class="inner">
-					<h2 class="major">Vitae phasellus</h2>
-					<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend
-						erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget
-						mattis egestas, purus ipsum consequat orci, sit amet lobortis
-						lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat
-						auctor laoreet.</p>
-					<section class="features">
-						<article>
-							<a href="#" class="image">
-								<img src="${appRoot }/resources/img/pic04.jpg" alt="" />
-							</a>
-							<h3 class="major">Sed feugiat lorem</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-								vehicula id nulla dignissim dapibus ultrices.</p>
-							<a href="#" class="special">Learn more</a>
-						</article>
-						<article>
-							<a href="#" class="image">
-								<img src="${appRoot }/resources/img/pic05.jpg" alt="" />
-							</a>
-							<h3 class="major">Nisl placerat</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-								vehicula id nulla dignissim dapibus ultrices.</p>
-							<a href="#" class="special">Learn more</a>
-						</article>
-						<article>
-							<a href="#" class="image">
-								<img src="${appRoot }/resources/img/pic06.jpg" alt="" />
-							</a>
-							<h3 class="major">Ante fermentum</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-								vehicula id nulla dignissim dapibus ultrices.</p>
-							<a href="#" class="special">Learn more</a>
-						</article>
-						<article>
-							<a href="#" class="image">
-								<img src="${appRoot }/resources/img/pic07.jpg" alt="" />
-							</a>
-							<h3 class="major">Fusce consequat</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-								vehicula id nulla dignissim dapibus ultrices.</p>
-							<a href="#" class="special">Learn more</a>
-						</article>
-					</section>
-					<ul class="actions">
-						<li>
-							<a href="#" class="button">Browse All</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-
-		</section>
-
-		<!-- footer -->
-		<%@ include file="/WEB-INF/subModules/footer.jsp"%>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="${appRoot }/resources/assets/js/jquery.min.js"></script>
-	<script src="${appRoot }/resources/assets/js/jquery.scrollex.min.js"></script>
-	<script src="${appRoot }/resources/assets/js/browser.min.js"></script>
-	<script src="${appRoot }/resources/assets/js/breakpoints.min.js"></script>
-	<script src="${appRoot }/resources/assets/js/util.js"></script>
-	<script src="${appRoot }/resources/assets/js/main.js"></script>
+  <!-- Template Main JS File -->
+  <script src="${appRoot }/resources/assets/js/main.js"></script>
 
 </body>
 </html>
