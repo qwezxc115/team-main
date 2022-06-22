@@ -1,100 +1,270 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="nb" tagdir="/WEB-INF/tags/nb"%>
+
+<%
+request.setCharacterEncoding("utf-8");
+%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>트리플</title>
-
-<meta content="" name="description">
-<meta content="" name="keywords">
-
-<!-- Favicons -->
-<link href="${appRoot }/resources/assets/img/apple-touch-icon.png"
-	rel="apple-touch-icon">
-
-<!-- 타이틀 로고 -->
-<link href="${appRoot }/resources/assets/img/triple.png" rel="icon">
+<%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-	rel="stylesheet">
+<title>고 집</title>
 
-<!-- Vendor CSS Files -->
-<link href="${appRoot }/resources/assets/vendor/aos/aos.css"
-	rel="stylesheet">
-<link
-	href="${appRoot }/resources/assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${appRoot }/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
-<link
-	href="${appRoot }/resources/assets/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link
-	href="${appRoot }/resources/assets/vendor/glightbox/css/glightbox.min.css"
-	rel="stylesheet">
-<link
-	href="${appRoot }/resources/assets/vendor/swiper/swiper-bundle.min.css"
-	rel="stylesheet">
+<style type="text/css">
+	
+	.ba_bg{ 
+		width: 100%;
+	    height: 100px;
+	   	
+    }
+    
+   	.board_bg{ 
+		width: 100%;
+	    height: 100px;
+	    background:no-repeat  url("${appRoot }/resources/img/main_board.png");
+	    background-size:contain ;
+	   	
+    }
+    .card_s{
+    		max-width: 100%;
+    }
+    
+    #imgsize{
+    	max-width:100%;
+    	height: 250px;
+    	padding:5px;
+    }
+    #imgtop{
+    	max-width:100%;
+    	height: 250px;
+    	padding:5px;
+    }
+    .imgview{
+    	width: 100%;
+    	height: 250px;
+    }
 
-<!-- Template Main CSS File -->
-<link href="${appRoot }/resources/assets/css/style.css" rel="stylesheet">
+    .at{
+    	font-size:30px;
+    	color: #6d0d27;
+    }
+    
+    .st{
+    	color: #6d0d27;
+    }
+   
+</style>
+<!-- timeago -->
+<script src="${appRoot }/resources/js/date.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		/* for문 대신에 each 함수 사용해서 timeBefore js에 값 보내주는 스크립트 */
+		$(".card-time-before").each(function(i, e) {
+			timeBefore(e);
+		})
+	})
+</script>
 
 </head>
 <body>
+	<div class="container">
+		<nb:navbar></nb:navbar>
 
-	<!-- 헤더 -->
-	<%@ include file="/WEB-INF/subModules/header.jsp"%>
-
-
-	<!-- ======= Hero Section ======= -->
-	<section id="hero" class="d-flex align-items-center">
-		<div class="container d-flex flex-column align-items-center"
-			data-aos="zoom-in" data-aos-delay="100">
-			<h1>트리플</h1>
-			<h2>Trip for</h2>
-			<a href="${appRoot }/board/introduce" class="btn-about">About Me</a>
+		<div class=".ba_bg" >
+	      <a href="${appRoot }/main/tos"><img src="${appRoot }/resources/img/store_01.png" class="d-block w-100"  id="carousel-size"></a>
+	    </div>
+	    
+		<div class="text-center">
+			<a class="navbar-brand at" href="${appRoot }/store/home">스토어</a>
 		</div>
-	</section>
-	<!-- End Hero -->
+		<p class="text-center">요즘 뜨는 상품 ! 이 상품들 어때요  ~?</p>
+		<div class="row row-cols-md-4">
+			<!-- 상품 -->
+			<c:forEach items="${storelist }" var="store">
+				<c:url value="/store/detail" var="getUrl">
+					<c:param name="pno" value="${store.pno }" />
+				</c:url>
 
-	<!-- footer -->
-	<%@ include file="/WEB-INF/subModules/footer.jsp"%>
+				<a class="nav-link" href="${getUrl}">
+					<div class="col mb-3">
+						<div class="card card_s text-center">
+							<div id="imgsize" class="text-center" >
+					 			<img class="imgview" src="${imgRoot}store/${store.pno }/${store.fileName[0]}" class="card-img-top" >
+							</div>
 
-	<div id="preloader"></div>
-	<a href="#"
-		class="back-to-top d-flex align-items-center justify-content-center">
-		<i class="bi bi-arrow-up-short"></i>
-	</a>
+							<div class="card-body text-center">
+								<input type="hidden" class="card-text" value="${store.pno }" />
+								<div class="card-title">상품명 : ${store.title }</div>
+							</div>
 
-	<!-- Vendor JS Files -->
-	<script
-		src="${appRoot }/resources/assets/vendor/purecounter/purecounter.js"></script>
-	<script src="${appRoot }/resources/assets/vendor/aos/aos.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/php-email-form/validate.js"></script>
+							<div class="form-group " id="card-detail">
+								<div class="card-text" style="text-align: center">
+									가격 :
+									<fmt:formatNumber pattern="#,###원" value="${store.price }" />
+								</div>
+							</div>
+							<hr class="m-0">
+							<div class="card-add text-center p-2" >${store.delivery }</div>
+						</div>
+					</div>
+				</a>
+			</c:forEach>
+		</div>
+		
+		<div class="board_bg text-center ">
+		
+			<h3 class="p-4">우리들의 소통 공간 </h3>
+			
+		</div>
+		<div class="row row-cols-2 m-0">
+			<div class="col border">
+				<div class="text-center">
+				<a class="navbar-brand st" href="${appRoot }/community/cbhome">자유게시판</a>
+				</div>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th style="width: 5%">#</th>
+							<th style="width: 25%">제목</th>
+							<th style="width: 25%">작성자</th>
+							<th style="width: 25%">작성일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${cboardList }" var="cboard">
+							<tr>
+								<td>${cboard.bno }</td>
+								<td><c:url value="/community/cbreading" var="getUrl">
+										<c:param name="bno" value="${cboard.bno }" />
+									</c:url> <a href="${getUrl}"> ${cboard.title } </a></td>
+								<td>${cboard.writer }</td>
+								<td>
+									<fmt:formatDate pattern="yyyy-MM-dd" value="${cboard.regdate }"/>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			<div class="col border ">
+				<div class="text-center">
+					<a class="navbar-brand st"  href="${appRoot }/cs/notice">공지사항</a>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th style="width: 5%">#</th>
+							<th style="width: 25%">제목</th>
+							<th style="width: 25%">작성자</th>
+							<th style="width: 25%">작성일</th>
+						</tr>
+					</thead>
+		
+					<tbody>
+						<c:forEach items="${noticelist }" var="notice">
+							<c:url value="/cs/noticeReading" var="getUrl">
+								<c:param name="nno" value="${notice.nno }" />
+							</c:url>
+							<tr>
+								<%-- 				<td>${notice.count }</td> --%>
+								<td>${notice.nno }</td>
+								<td><a href="${getUrl}">${notice.ntitle }</a></td>
+								<td>${notice.userid }</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd"
+										value="${notice.nregdate }" /></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
-	<!-- Template Main JS File -->
-	<script src="${appRoot }/resources/assets/js/main.js"></script>
+		<br>
+		
+		<div class=".ba_bg" >
+	      <a href="${appRoot }/market/home"><img src="${appRoot }/resources/img/market_01.png" class="d-block w-100"  id="carousel-size"></a>
+	    </div>
+	    
+	    <br>
+		<div class="text-center">
+		<a class="navbar-brand at" href="${appRoot }/market/home">중고마켓</a>
+		</div>
+		<p class="text-center">버리기 애매한 물건들!  이제 고집 중고마켓으로 오세요 ~ </p>
+		<div class="container">
+			<div >
+				<div class="row row-cols-md-4">
+					<!-- 상품 -->
+					<c:forEach items="${marketlist }" var="market">
+						<c:url value="/market/detail" var="getUrl">
+							<c:param name="mno" value="${market.mno }" />
+						</c:url>
+						<a class="nav-link" href="${getUrl}">
+							<div class="col mb-4">
+								<div class="card text-center" >
+								
+									<div id="imgtop" >
+						 				<img class="imgview" src="${imgRoot}market/${market.mno }/${market.fileName[0]}" class="card-img-top" >
+									</div>
+									
+									<div class="card-body" style="text-align: center">
+										<input type="hidden" class="card-text" value="${market.mno }" />
+										<div class="card-title">상품명 : ${market.mtitle }</div>
+									</div>
 
+									<div class="form-group" id="card-detail"
+										style="text-align: center">
+										<span class="card-text">가격 :
+										 <fmt:formatNumber pattern="#,###원" value="${market.mprice }" />
+										</span> 
+									</div>
+									<p class="card-time-before" >${market.mregdate.time }</p>
+									<hr class="m-0">
+									<div class="card-add text-center p-2" >거래지역 :${market.maddress }</div>
+								</div>
+							</div>
+						</a>
+					</c:forEach>
+				</div>
+			</div>
+		</div>
+
+	
+		<div class="text-center">
+			<h4>고집으로 오는 길 ~</h4>
+		<div class="google-map">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.352718627358!2d127.02827121611186!3d37.49959833571472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15796fe3091%3A0xaa658b05561b79ab!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsl63sgrzrj5kg7YWM7Zek656A66GcN-q4uCA3!5e0!3m2!1sko!2skr!4v1629262397606!5m2!1sko!2skr"
+				width="100%" height="450" style="border: 0;"></iframe>
+
+		</div>
+		</div>
+
+
+
+		<footer>
+			<nb:footer></nb:footer>
+		</footer>
+	</div>
+
+
+
+
+
+	<c:if test="${not empty qweasd}">
+		<script type="text/javascript">
+			alert("${qweasd}");
+		</script>
+	</c:if>
 </body>
 </html>
