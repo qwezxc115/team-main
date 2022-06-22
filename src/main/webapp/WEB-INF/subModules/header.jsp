@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>트리플</title>
+<title>titel</title>
 
 <meta content="" name="description">
 <meta content="" name="keywords">
@@ -51,50 +51,25 @@
 
 </head>
 <body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div
+			class="container-fluid d-flex justify-content-between align-items-center">
 
-	<!-- 헤더 -->
-	<%@ include file="/WEB-INF/subModules/header.jsp"%>
+			<h1 class="logo me-auto me-lg-0">
+				<a href="${appRoot }/main/home">트리플</a>
+			</h1>
 
+			<!-- navbar  -->
+			<my:navbar current="home" />
 
-	<!-- ======= Hero Section ======= -->
-	<section id="hero" class="d-flex align-items-center">
-		<div class="container d-flex flex-column align-items-center"
-			data-aos="zoom-in" data-aos-delay="100">
-			<h1>트리플</h1>
-			<h2>Trip for</h2>
-			<a href="${appRoot }/board/introduce" class="btn-about">About Me</a>
+			<div class="header-social-links">
+				<a href="#" class="signup">회원가입</a>
+				<a href="#" class="login">로그인</a>
+			</div>
+
 		</div>
-	</section>
-	<!-- End Hero -->
-
-	<!-- footer -->
-	<%@ include file="/WEB-INF/subModules/footer.jsp"%>
-
-	<div id="preloader"></div>
-	<a href="#"
-		class="back-to-top d-flex align-items-center justify-content-center">
-		<i class="bi bi-arrow-up-short"></i>
-	</a>
-
-	<!-- Vendor JS Files -->
-	<script
-		src="${appRoot }/resources/assets/vendor/purecounter/purecounter.js"></script>
-	<script src="${appRoot }/resources/assets/vendor/aos/aos.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/php-email-form/validate.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="${appRoot }/resources/assets/js/main.js"></script>
-
+	</header>
+	<!-- End Header -->
 </body>
 </html>

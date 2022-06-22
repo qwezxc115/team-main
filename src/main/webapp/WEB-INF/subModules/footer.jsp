@@ -48,53 +48,26 @@
 
 <!-- Template Main CSS File -->
 <link href="${appRoot }/resources/assets/css/style.css" rel="stylesheet">
-
 </head>
 <body>
 
-	<!-- 헤더 -->
-	<%@ include file="/WEB-INF/subModules/header.jsp"%>
-
-
-	<!-- ======= Hero Section ======= -->
-	<section id="hero" class="d-flex align-items-center">
-		<div class="container d-flex flex-column align-items-center"
-			data-aos="zoom-in" data-aos-delay="100">
-			<h1>트리플</h1>
-			<h2>Trip for</h2>
-			<a href="${appRoot }/board/introduce" class="btn-about">About Me</a>
+<!-- ======= Footer ======= -->
+	<footer id="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright
+				<strong>
+					<span>Kelly</span>
+				</strong>
+				. All Rights Reserved
+			</div>
+			<div class="credits">
+				Designed by
+				<a href="https://bootstrapmade.com/">BootstrapMade</a>
+			</div>
 		</div>
-	</section>
-	<!-- End Hero -->
-
-	<!-- footer -->
-	<%@ include file="/WEB-INF/subModules/footer.jsp"%>
-
-	<div id="preloader"></div>
-	<a href="#"
-		class="back-to-top d-flex align-items-center justify-content-center">
-		<i class="bi bi-arrow-up-short"></i>
-	</a>
-
-	<!-- Vendor JS Files -->
-	<script
-		src="${appRoot }/resources/assets/vendor/purecounter/purecounter.js"></script>
-	<script src="${appRoot }/resources/assets/vendor/aos/aos.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
-	<script
-		src="${appRoot }/resources/assets/vendor/php-email-form/validate.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="${appRoot }/resources/assets/js/main.js"></script>
-
+	</footer>
+	<!-- End  Footer -->
+	
 </body>
 </html>

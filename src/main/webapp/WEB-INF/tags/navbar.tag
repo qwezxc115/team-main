@@ -7,13 +7,10 @@
 <nav id="navbar" class="navbar order-last order-lg-0">
 	<ul>
 		<li>
-			<a class="active" href="${appRoot }/main/home">Home</a>
+			<a href="${appRoot }/board/introduce">소개</a>
 		</li>
 		<li>
-			<a href="about.html">소개</a>
-		</li>
-		<li>
-			<a href="resume.html">Resume</a>
+			<a href="${appRoot }/board/list">여행공유</a>
 		</li>
 		<li>
 			<a href="services.html">Services</a>
