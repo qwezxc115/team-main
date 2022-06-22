@@ -10,7 +10,7 @@
 			<a class="active" href="${appRoot }/main/home">Home</a>
 		</li>
 		<li>
-			<a href="about.html">About</a>
+			<a href="about.html">소개</a>
 		</li>
 		<li>
 			<a href="resume.html">Resume</a>
